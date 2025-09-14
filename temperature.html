@@ -5,8 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Regular (400) */
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Rounded-Light.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Semibold (600) */
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Text-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Bold (700) */
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Text-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Один класс для всех весов */
+  .font-sfpro {
+    font-family: 'SF Pro Display', sans-serif;
+  }
+</style>
+
+
+
+
+
+
+
 </head>
-<body>
+
     <body class="flex justify-center min-h-screen bg-gray-100">
   <!-- Основной контейнер -->
   <div class="w-96 shadow-lg p-4 bg-[#F2F2F7]">
@@ -14,7 +54,7 @@
     <!-- Заголовок + кнопка -->
      
     <div class="flex justify-between items-center mb-8">
-      <h1 class="font-bold text-3xl">Body Temperature</h1>
+      <h1 class="font-sfpro font-bold text-[28px]">Body Temperature</h1>
       
       <!-- Кнопка с иконкой -->
       <button class="bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
@@ -28,52 +68,92 @@
 </svg>
    </button>
 </div>
-<!-- Progress bar -->
- <div  id="circle" class="rounded-[34px] w-[350px] h-[350px] shadow-lg p-10 flex justify-center items-center
-                  bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 mb-[10px]">
 
-<div class="rounded-full w-[210px] h-[210px] border border-[#0088FF] border-[5px] cursor-pointer 
-                  hover:scale-105 hover:shadow-none transition-all duration-300 flex justify-center items-center">
-    <span  id="circleText" class="text-xl font-semibold">Start</span>
+
+<div id="circle" 
+     class="rounded-[34px] w-[350px] h-[350px] shadow-lg p-10 flex justify-center items-center
+            bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 mb-[10px]">
+
+  <div id="circleWrapper" class="relative w-[210px] h-[210px] cursor-pointer flex justify-center items-center">
+    <!-- Основной круг (изначально синий) -->
+    <div id="circleInner"
+         class="rounded-full w-full h-full border border-[#0088FF] border-[5px] flex justify-center items-center">
+      <span id="circleText" class="text-[20px] font-sfpro font-semibold">START</span>
+    </div>
+
+    <!-- Синяя дуга для анимации -->
+    <div id="blueSpinner"
+         class="absolute top-0 left-0 w-full h-full rounded-full border-[5px] border-t-[#0088FF] 
+                border-r-transparent border-b-transparent border-l-transparent hidden">
+    </div>
+  </div>
 </div>
-</div>
 
-
-<script>
-  const circleInner = document.querySelector("#circle > div"); // внутренний круг
-  const text = document.getElementById("circleText");
-
-  function updateBorder() {
-    let value = text.textContent.trim();
-    if (!isNaN(value) && value !== "") {
-      if (Number(value) >= 50) {
-        circleInner.classList.remove("border-[#0088FF]", "border-yellow-500");
-        circleInner.classList.add("border-green-500");
-      } else if((Number(value) >= 20) ) {
-        circleInner.classList.remove("border-[#0088FF]", "border-green-500");
-        circleInner.classList.add("border-red-500");
-      }
-    } else {
-      circleInner.classList.remove("border-green-500", "border-yellow-500");
-      circleInner.classList.add("border-[#0088FF]");
-    }
+<style>
+  @keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
-  // первый вызов при загрузке
-  updateBorder();
+  .loading {
+    animation: spin 1s linear infinite;
+  }
 
-  const observer = new MutationObserver(updateBorder);
-  observer.observe(text, { childList: true, characterData: true, subtree: true });
+  .gray-border {
+    border-color: #d1d5db;
+  }
+</style>
+
+<script>
+  const circleWrapper = document.getElementById("circleWrapper");
+  const circleInner = document.getElementById("circleInner");
+  const blueSpinner = document.getElementById("blueSpinner");
+  const text = document.getElementById("circleText");
+
+  function startLoading() {
+    text.textContent = ""; // убираем текст
+    circleInner.classList.add("gray-border"); // круг серый
+    blueSpinner.classList.remove("hidden"); // показываем синюю дугу
+    blueSpinner.classList.add("loading"); // вращаем
+
+    setTimeout(() => {
+      // убираем анимацию
+      blueSpinner.classList.add("hidden");
+      blueSpinner.classList.remove("loading");
+      circleInner.classList.remove("gray-border");
+
+      // генерируем случайное число процентов от 0 до 100
+      const randomPercent = Math.floor(Math.random() * 101);
+      text.textContent = randomPercent + "%";
+    }, 1000);
+  }
+
+  circleWrapper.addEventListener("click", startLoading);
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Usage -->
 <div class="w-[350px] h-[265] rounded-[26px] p-4 shadow-lg p-10  
                   bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 ">
                 
-                <span class="mb-[10px]">Usage</span>
-
-                <p>1. Press the Start button to begin the 
+                <div class="mb-[10px]">
+                <span class=" font-sfpro text-[22px]">Usage</span>
+                  </div>
+                <p class="font-sfpro text-[17px] leading-[22px] ">1. Press the Start button to begin the 
                     measurement.<br>
                     2. You will have 5 seconds to place the 
                     sensor close to your forehead.<br>

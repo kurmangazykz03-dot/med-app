@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .message-card { @apply flex justify-between gap-[5px] mb-[15px] leading-[22px]; }
+    .message-id { @apply font-sfpro font-semibold text-gray-500 text-[17px]; }
+    .message-text { @apply font-sfpro text-[17px]; }
+  </style>
+</head>
+<body class="flex justify-center min-h-screen bg-gray-100">
+  
+  <div class="w-96 shadow-lg p-4 bg-[#F2F2F7]">
+    <!-- Заголовок + кнопка -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="font-sfpro font-bold text-[28px]">Pager</h1>
+      <button class="bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
+                     hover:scale-105 hover:shadow-2xl hover:bg-white/40 
+                     active:scale-95 active:shadow-none 
+                     transition-all duration-300">
+        <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-900">
+          <path d="M0.360842 7.65576L7.00147 1.01514C7.46045 0.556152 8.20264 0.556152 8.65674 1.01514L9.76026 2.11865C10.2192 2.57764 10.2192 3.31982 9.76026 3.77393L5.05811 8.48584L9.76514 13.1929C10.2241 13.6519 10.2241 14.394 9.76514 14.8481L8.66162 15.9565C8.20264 16.4155 7.46045 16.4155 7.00635 15.9565L0.365725 9.31592C-0.0981421 8.85693 -0.0981421 8.11475 0.360842 7.65576Z" fill="black"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Контейнер сообщений -->
+    <div id="messages-container" 
+         class="rounded-[26px] w-[350px] h-[660px] shadow-lg p-[10px] 
+                bg-[#fff] backdrop-blur-3xl border border-white/80 mb-[10px] 
+                overflow-y-scroll">
+    </div>
+
+
+<div class="flex items-center bg-[#78788029] rounded-[100px] p-[11px]">
+  <!-- ID -->
+  <span class="font-bold text-gray-500 mr-2">ID98:</span>
+
+  <!-- Поле ввода -->
+  <input 
+    type="text" 
+    placeholder="Your short message here..." 
+    class="flex-1 bg-transparent outline-none text-gray-900 placeholder-gray-500">
+
+  <!-- Кнопка-стрелка -->
+  <button>
+    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path opacity="0.5" d="M10.2021 9.33008L3.56152 15.9707C3.10254 16.4297 2.36035 16.4297 1.90625 15.9707L0.802734 14.8672C0.34375 14.4082 0.34375 13.666 0.802734 13.2119L5.50977 8.50488L0.802734 3.79785C0.34375 3.33887 0.34375 2.59668 0.802734 2.14258L1.90137 1.0293C2.36035 0.570313 3.10254 0.570313 3.55664 1.0293L10.1973 7.66992C10.6611 8.12891 10.6611 8.87109 10.2021 9.33008Z" fill="black"/>
+    </svg>
+  </button>
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <script>
+    const messages = [
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+      { id: "ID98", text: "Patient in Ward 3 requires vitals check." },
+      { id: "ID19", text: "IV line replacement scheduled at 14:00" },
+      { id: "ID15", text: "Radiology results ready for review." },
+    ];
+
+    const container = document.getElementById("messages-container");
+
+    messages.forEach(msg => {
+      const div = document.createElement("div");
+      div.className = "message-card flex justify-between  gap-[5px] mb-[15px] leading-[22px]";
+      div.innerHTML = `<span class="message-id font-sfpro font-semibold text-gray-500 text-[17px] ">[${msg.id}]</span>
+                       <p class="message-text font-sfpro text-[18px]">${msg.text}</p>`;
+      container.appendChild(div);
+    });
+  </script>
+
+
+
+
+</body>
+</html>

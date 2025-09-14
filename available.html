@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Available Devices</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+  /* Regular */
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Bold */
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Text-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Один класс для всех весов */
+  .font-sfpro {
+    font-family: 'SF Pro Display', sans-serif;
+  }
+</style>
+
+
 </head>
 <body class="flex justify-center min-h-screen bg-gray-100">
    <!-- Основной контейнер -->
@@ -12,7 +39,7 @@
 
       <!-- Заголовок + кнопка -->
      <div class="flex justify-between items-center mb-8">
-      <h1 class="font-bold text-3xl">Available devices</h1>
+      <h1 class="font-sfpro font-bold text-[34px]">Available devices</h1>
 
       <!-- Кнопка с иконкой -->
     <button class="bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
@@ -34,7 +61,7 @@
 
   <div class="flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer rounded-t-[26px] ">
     <!-- имя -->
-    <span class="text-sm text-gray-900 ">Alexey's Dr Fever</span>
+    <span class="text-[17px] text-gray-900 font-sfpro">Alexey's Dr Fever</span>
     <!-- Иконки -->
     <div class="flex items-center">
       <!-- Bluetooth -->
@@ -57,7 +84,7 @@
     <div class="flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer ">
 
     <!-- ия -->
-    <span class="text-sm text-gray-900 ">Temirbek's Dr Fever</span>
+    <span class="text-[17px] text-gray-900 font-sfpro">Temirbek's Dr Fever</span>
     <!-- Иконки -->
     <div class="flex items-center">
       <!-- Bluetooth -->
@@ -81,7 +108,7 @@
   <div class="flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer rounded-b-[26px]">
 
     <!-- имя -->
-    <span class=" text-sm text-gray-900">Ganesh's Dr Fever</span>
+    <span class=" text-[17px] text-gray-900 font-sfpro">Ganesh's Dr Fever</span>
     <!-- Иконки-->
     <div class="flex items-center">
       <!-- Bluetooth  -->

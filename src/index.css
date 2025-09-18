@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* tailwind уже подключён — просто добавь эти keyframes в конец файла */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* опционально: удобный helper, если захочешь использовать классами */
+.spin {
+  animation: spin 1s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}

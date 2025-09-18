@@ -1,62 +1,66 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { assets } from '../assets/assets'
 
 export default function MainActivity() {
-  return (
-    <div className="flex justify-center min-h-screen bg-gray-100">
-      {/* Основной контейнер */}
-      <div className="w-96 shadow-lg p-4 bg-[#F2F2F7]">
+	return (
+		<div className='flex justify-center min-h-screen bg-gray-100'>
+			{/* Основной контейнер */}
+			<div className='w-96 shadow-lg p-4 bg-[#F2F2F7]'>
+				{/* Заголовок + кнопка */}
+				<div className='flex justify-between items-center mb-8'>
+					<h1 className='font-sfpro font-bold text-[34px]'>Dr. Fever</h1>
 
-        {/* Заголовок + кнопка */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="font-sfpro font-bold text-[34px]">Dr. Fever</h1>
-
-          {/* Кнопка с иконкой */}
-          <button className="bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
+					{/* Кнопка с иконкой */}
+					<button
+          aria-label="settings"
+						className='bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
                            hover:scale-105 hover:shadow-2xl hover:bg-white/40 
-                           active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer">
-            <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-900">
-              <path d="M23.2962 15.9102L21.2161 14.709C21.4261 13.5762 21.4261 12.4141 21.2161 11.2812L23.2962 10.0801C23.5355 9.94336 23.6429 9.66016 23.5648 9.39648C23.0228 7.6582 22.0999 6.08594 20.8939 4.77734C20.7083 4.57715 20.4056 4.52832 20.1712 4.66504L18.0911 5.86621C17.2171 5.11426 16.2112 4.5332 15.1224 4.15234V1.75488C15.1224 1.48145 14.9319 1.24219 14.6634 1.18359C12.8714 0.783203 11.0355 0.802734 9.33135 1.18359C9.0628 1.24219 8.87237 1.48145 8.87237 1.75488V4.15723C7.78838 4.54297 6.78253 5.12402 5.90362 5.87109L3.82842 4.66992C3.58917 4.5332 3.29131 4.57715 3.10577 4.78223C1.89971 6.08594 0.976861 7.6582 0.434869 9.40137C0.351861 9.66504 0.464166 9.94824 0.703424 10.085L2.7835 11.2861C2.57354 12.4189 2.57354 13.5811 2.7835 14.7139L0.703424 15.915C0.464166 16.0518 0.356744 16.335 0.434869 16.5986C0.976861 18.3369 1.89971 19.9092 3.10577 21.2178C3.29131 21.418 3.59405 21.4668 3.82842 21.3301L5.9085 20.1289C6.78253 20.8809 7.78839 21.4619 8.87725 21.8428V24.2451C8.87725 24.5186 9.06768 24.7578 9.33624 24.8164C11.1282 25.2168 12.9642 25.1973 14.6683 24.8164C14.9368 24.7578 15.1273 24.5186 15.1273 24.2451V21.8428C16.2112 21.457 17.2171 20.876 18.096 20.1289L20.1761 21.3301C20.4153 21.4668 20.7132 21.4229 20.8987 21.2178C22.1048 19.9141 23.0276 18.3418 23.5696 16.5986C23.6429 16.3301 23.5355 16.0469 23.2962 15.9102ZM11.9974 16.9014C9.84405 16.9014 8.09112 15.1484 8.09112 12.9951C8.09112 10.8418 9.84405 9.08887 11.9974 9.08887C14.1507 9.08887 15.9036 10.8418 15.9036 12.9951C15.9036 15.1484 14.1507 16.9014 11.9974 16.9014Z" fill="black"/>
-            </svg>
-          </button>
-        </div>
-
-        {/* Блоки с данными */}
-        <div className="flex justify-between items-center gap-[30px]">
-
-          {/* Карточка: Body temperature */}
-          <Link
-            to="/temperature"
-            className="rounded-[34px] w-40 h-40 shadow-lg p-10 text-center flex flex-col items-center 
-                       bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 cursor-pointer 
-                       hover:scale-105 hover:shadow-none transition-all duration-300 "
-          >
-            <div className="mb-5">
-              {/* SVG иконка */}
-              <svg width="37" height="75" viewBox="0 0 37 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M27.75 56.25C27.75 61.4276 23.6086 65.625 18.5 65.625C13.3914 65.625 9.24997 61.4276 9.24997 56.25C9.24997 52.7805 11.111 49.7536 13.875 48.1323V32.8125C13.875 30.2237 15.9457 28.125 18.5 28.125C21.0543 28.125 23.125 30.2237 23.125 32.8125V48.1323C25.889 49.7536 27.75 52.7805 27.75 56.25ZM32.375 43.8497C35.2529 47.1548 37 51.4953 37 56.25C37 66.6059 28.7179 75 18.5 75C18.4568 75 18.412 74.9999 18.3686 74.9996C8.20775 74.9281 -0.0516436 66.4506 0.00024314 56.1523C0.0239463 51.4358 1.76685 47.1321 4.62496 43.8497V14.0625C4.62496 6.29604 10.8371 0 18.5 0C26.1629 0 32.375 6.29604 32.375 14.0625V43.8497ZM30.0625 56.25C30.0625 51.2199 27.2629 48.605 25.4375 46.5085V14.0625C25.4375 10.1855 22.3253 7.03125 18.5 7.03125C14.6747 7.03125 11.5625 10.1855 11.5625 14.0625V46.5085C9.72229 48.622 6.96276 51.2106 6.93761 56.1882C6.90523 62.6153 12.0776 67.9239 18.4167 67.9685L18.5 67.9688C24.8755 67.9688 30.0625 62.7117 30.0625 56.25Z" fill="black" />
-              </svg>
+                           active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer w-[48px] h-[48px]' 
+					>
+						<div className='flex items-center justify-center'>
+              <img src={assets.settings} alt="" />
             </div>
-            <span className="text-xs font-sfpro whitespace-nowrap">Body temperature</span>
-          </Link>
+					</button>
+				</div>
 
-          {/* Карточка: Pager */}
-          <Link
-            to="/pager"
-            className="rounded-[34px] w-40 h-40 shadow-lg p-10 text-center flex flex-col items-center 
+				{/* Блоки с данными */}
+				<div className='flex justify-between items-center gap-[30px]'>
+					{/* Карточка: Body temperature */}
+					<Link
+						to='/temperature'
+						className='rounded-[34px] w-40 h-40 shadow-lg p-10 text-center flex flex-col items-center 
                        bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 cursor-pointer 
-                       hover:scale-105 hover:shadow-none transition-all duration-300"
-          >
-            <div className="mb-5">
-              {/* SVG иконка */}
-              <svg width="70" height="72" viewBox="0 0 75 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M65.625 0H9.375C6.8886 0 4.50403 0.98333 2.74587 2.73367C0.987721 4.48401 0 6.85798 0 9.33333L0 46.6667C0 49.142 0.987721 51.516 2.74587 53.2663C4.50403 55.0167 6.8886 56 9.375 56H65.625C68.1114 56 70.496 55.0167 72.2541 53.2663C74.0123 51.516 75 49.142 75 46.6667V9.33333C75 6.85798 74.0123 4.48401 72.2541 2.73367C70.496 0.98333 68.1114 0 65.625 0ZM23.4375 44.3333H11.7188C11.0971 44.3333 10.501 44.0875 10.0615 43.6499C9.62193 43.2123 9.375 42.6188 9.375 42V39.6667C9.375 39.0478 9.62193 38.4543 10.0615 38.0167C10.501 37.5792 11.0971 37.3333 11.7188 37.3333H23.4375V44.3333ZM42.1875 42C42.1875 42.6188 41.9406 43.2123 41.501 43.6499C41.0615 44.0875 40.4654 44.3333 39.8438 44.3333H28.125V37.3333H39.8438C40.4654 37.3333 41.0615 37.5792 41.501 38.0167C41.9406 38.4543 42.1875 39.0478 42.1875 39.6667V42ZM65.625 23.3333C65.625 24.571 65.1311 25.758 64.2521 26.6332C63.373 27.5083 62.1807 28 60.9375 28H14.0625C12.8193 28 11.627 27.5083 10.7479 26.6332C9.86886 25.758 9.375 24.571 9.375 23.3333V14C9.375 12.7623 9.86886 11.5753 10.7479 10.7002C11.627 9.825 12.8193 9.33333 14.0625 9.33333H60.9375C62.1807 9.33333 63.373 9.825 64.2521 10.7002C65.1311 11.5753 65.625 12.7623 65.625 14V23.3333Z" fill="black" />
-              </svg>
-            </div>
-            <span className="text-xs font-sfpro whitespace-nowrap">Pager</span>
-          </Link>
+                       hover:scale-105 hover:shadow-none transition-all duration-300 '
+					>
+						<div className='mb-5'>
+							{/* SVG иконка */}
+							<div>
+                <img src={assets.temperature} alt="" />
+              </div>
+						</div>
+						<span className='text-xs font-sfpro whitespace-nowrap'>
+							Body temperature
+						</span>
+					</Link>
 
-        </div>
-      </div>
-    </div>
-  );
+					{/* Карточка: Pager */}
+					<Link
+						to='/pager'
+						className='rounded-[34px] w-40 h-40 shadow-lg p-10 text-center flex flex-col items-center 
+                       bg-[rgba(250,250,250,0.7)] backdrop-blur-3xl border border-white/80 cursor-pointer 
+                       hover:scale-105 hover:shadow-none transition-all duration-300'
+					>
+            {/* TODO:Not correctly located pager picture  */}
+						<div className='mb-10'>
+							{/* SVG иконка */}
+							<div className='flex items-center'>
+                <img src={assets.pager} alt="" />
+              </div>
+						</div>
+						<span className='text-xs font-sfpro whitespace-nowrap'>Pager</span>
+					</Link>
+				</div>
+			</div>
+		</div>
+	)
 }

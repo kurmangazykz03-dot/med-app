@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { assets } from '../assets/assets'
+
 
 export default function Available() {
 	return (
@@ -13,17 +15,14 @@ export default function Available() {
 
 					{/* Кнопка с иконкой */}
 					<button
-						className='bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
+					aria-label="Available"
+						className='bg-white/50 backdrop-blur-3xl border border-white/50 rounded-[1000px] p-2 shadow-xl 
                              hover:scale-105 hover:shadow-2xl hover:bg-white/40 
-                             active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer'
+                             active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer w-[48px] h-[48px]'
 					>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							viewBox='0 0 640 640'
-							className='w-5 h-5 text-gray-900 fill-current'
-						>
-							<path d='M640 263.9L640 317.9L320 517.9L0 318L0 264L320 464L640 263.9zM445.5 335.9L492.6 306.5C455.4 250.7 391.9 213.9 319.9 213.9C247.9 213.9 184.4 250.6 147.3 306.3L147.6 306.3C150.1 304 152.7 301.8 155.3 299.6C245 225.2 374.7 241.5 445.5 335.9zM225.4 354.7C242.3 342.8 261.9 336 282.8 336C317.2 336 348 354.4 369.2 383.6L414.6 355.2C393.7 325.3 359 305.7 319.8 305.7C280.9 305.7 246.4 325.1 225.4 354.7zM103.6 225.1C235.4 120.8 421.8 148.7 521.1 287.2L521.8 288.2L570.6 257.8C517.1 176.1 424.8 122.1 319.9 122.1C216.4 122.1 123.3 175.6 69.4 257.7C79.3 247.2 92.1 234.2 103.6 225.1z' />
-						</svg>
+						<div className='flex items-center justify-center'>
+						<img src={assets.available} alt="" />
+						</div>
 					</button>
 				</div>
 
@@ -31,58 +30,43 @@ export default function Available() {
 				<div className='bg-white shadow divide-gray-200 w-full rounded-t-[26px] rounded-b-[26px]'>
 					{/* 1-й элемент */}
 					<Link
-						to='/device/alexey'
-						className='flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer rounded-t-[26px]'
+						to='#'
+						className='flex justify-between items-center px-[16px] pt-[12.5px] pb-[23.5px] hover:bg-gray-50 cursor-pointer rounded-t-[26px]'
 					>
 						<span className='text-[17px] text-gray-900 font-sfpro'>
 							Alexey's Dr Fever
 						</span>
-						<div className='flex items-center'>
+						<div className='flex items-center gap-[16px]'>
 							{/* Bluetooth */}
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 640 640'
-								className='w-5 h-5 text-blue-600 fill-current'
-							>
-								<path d='M388.6 235.1L345.7 278L345.4 192L388.6 235.1zM345.4 454.9L388.5 411.8L345.6 368.9L345.4 454.9zM512 323.4C512 529 440.1 576 326.9 576C213.7 576 128 529 128 323.4C128 117.8 211.4 64 324.6 64C437.8 64 512 117.9 512 323.4zM353.5 323.4L432.9 234.8L307.8 100.5L307.8 277.4L234 203.6L207 230.5L299.7 323.5L207 416.5L233.9 443.4L307.7 369.6L310 539.6L437.4 412.1L353.5 323.4z' />
-							</svg>
+							<div className='w-[18.75px] h-[25px]'>
+							<img src={assets.s_bluetooth} alt="" />
 							{/* Стрелка */}
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 320 512'
-								className='w-4 h-4 text-gray-400 fill-current'
-							>
-								<path d='M278.6 233.4l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3z' />
-							</svg>
+							</div>
+							<div>
+								<img src={assets.av_arrow} alt="" />
+							</div>
 						</div>
 					</Link>
 
-					<div className='border-t border-gray-200 mx-2'></div>
+					<div className='border-t border-gray-200 '></div>
 
 					{/* 2-й элемент */}
 					<Link
-						to='/device/temirbek'
-						className='flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer'
+						to='#'
+						className='flex justify-between items-center px-[16px] pt-[12.5px] pb-[23.5px] hover:bg-gray-50 cursor-pointer'
 					>
 						<span className='text-[17px] text-gray-900 font-sfpro'>
 							Temirbek's Dr Fever
 						</span>
-						<div className='flex items-center'>
+						<div className='flex items-center gap-[16px]'>
 							{/* Bluetooth */}
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 640 640'
-								className='w-5 h-5 text-blue-600 fill-current'
-							>
-								<path d='M388.6 235.1L345.7 278L345.4 192L388.6 235.1zM345.4 454.9L388.5 411.8L345.6 368.9L345.4 454.9zM512 323.4C512 529 440.1 576 326.9 576C213.7 576 128 529 128 323.4C128 117.8 211.4 64 324.6 64C437.8 64 512 117.9 512 323.4zM353.5 323.4L432.9 234.8L307.8 100.5L307.8 277.4L234 203.6L207 230.5L299.7 323.5L207 416.5L233.9 443.4L307.7 369.6L310 539.6L437.4 412.1L353.5 323.4z' />
-							</svg>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 320 512'
-								className='w-4 h-4 text-gray-400 fill-current'
-							>
-								<path d='M278.6 233.4l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3z' />
-							</svg>
+							<div className='w-[18.75px] h-[25px]'>
+							<img src={assets.s_bluetooth} alt="" />
+							{/* Стрелка */}
+							</div>
+							<div>
+								<img src={assets.av_arrow} alt="" />
+							</div>
 						</div>
 					</Link>
 
@@ -90,28 +74,21 @@ export default function Available() {
 
 					{/* 3-й элемент */}
 					<Link
-						to='/device/ganesh'
-						className='flex justify-between items-center px-2 py-3 hover:bg-gray-50 cursor-pointer rounded-b-[26px]'
+						to='#'
+						className='flex justify-between items-center px-[16px] pt-[12.5px] pb-[13.5px] hover:bg-gray-50 cursor-pointer rounded-b-[26px]'
 					>
 						<span className='text-[17px] text-gray-900 font-sfpro'>
 							Ganesh's Dr Fever
 						</span>
-						<div className='flex items-center'>
+						<div className='flex items-center gap-[16px]'>
 							{/* Bluetooth */}
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 640 640'
-								className='w-5 h-5 text-blue-600 fill-current'
-							>
-								<path d='M388.6 235.1L345.7 278L345.4 192L388.6 235.1zM345.4 454.9L388.5 411.8L345.6 368.9L345.4 454.9zM512 323.4C512 529 440.1 576 326.9 576C213.7 576 128 529 128 323.4C128 117.8 211.4 64 324.6 64C437.8 64 512 117.9 512 323.4zM353.5 323.4L432.9 234.8L307.8 100.5L307.8 277.4L234 203.6L207 230.5L299.7 323.5L207 416.5L233.9 443.4L307.7 369.6L310 539.6L437.4 412.1L353.5 323.4z' />
-							</svg>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 320 512'
-								className='w-4 h-4 text-gray-400 fill-current'
-							>
-								<path d='M278.6 233.4l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3z' />
-							</svg>
+							<div className='w-[18.75px] h-[25px]'>
+							<img src={assets.s_bluetooth} alt="" />
+							{/* Стрелка */}
+							</div>
+							<div>
+								<img src={assets.av_arrow} alt="" />
+							</div>
 						</div>
 					</Link>
 				</div>

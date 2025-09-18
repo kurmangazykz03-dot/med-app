@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { assets } from '../assets/assets'
 
 export default function Temperature() {
 	const [countdown, setCountdown] = useState(null)
@@ -69,29 +71,20 @@ export default function Temperature() {
 		result === null ? '#0088FF' : result > 50 ? '#00E676' : '#FF1744'
 
 	return (
-		<div className='flex justify-center min-h-screen bg-gray-100'>
+		<div className='flex justify-center  min-h-screen bg-gray-100'>
 			<div className='w-96 shadow-lg p-4 bg-[#F2F2F7]'>
 				<div className='flex justify-between items-center mb-8'>
 					<h1 className='font-sfpro font-bold text-[28px]'>Body Temperature</h1>
-					{/* Можно заменить Link или кнопку навигации */}
-					<button
+
+					<Link to='/'
 						className='bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
                      hover:scale-105 hover:shadow-2xl hover:bg-white/40 
-                     active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer'
+                     active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer w-[48px] h-[48px] flex justify-center items-center'
 					>
-						<svg
-							width='11'
-							height='17'
-							viewBox='0 0 11 17'
-							xmlns='http://www.w3.org/2000/svg'
-							className='w-5 h-5'
-						>
-							<path
-								d='M0.360842 7.65576L7.00147 1.01514C7.46045 0.556152 8.20264 0.556152 8.65674 1.01514L9.76026 2.11865C10.2192 2.57764 10.2192 3.31982 9.76026 3.77393L5.05811 8.48584L9.76514 13.1929C10.2241 13.6519 10.2241 14.394 9.76514 14.8481L8.66162 15.9565C8.20264 16.4155 7.46045 16.4155 7.00635 15.9565L0.365725 9.31592C-0.0981421 8.85693 -0.0981421 8.11475 0.360842 7.65576Z'
-								fill='black'
-							/>
-						</svg>
-					</button>
+					<div className=''>
+						<img src={assets.back_arrow} alt="" />
+					</div>
+					</Link>
 				</div>
 
 				<div

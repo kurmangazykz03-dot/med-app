@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { assets } from '../assets/assets'
+import { Link } from 'react-router-dom';
 
 export default function Pager() {
   const [messages] = useState([
@@ -24,25 +26,20 @@ export default function Pager() {
 
   return (
     <div className="flex justify-center min-h-screen bg-gray-100">
-      <div className="w-96 shadow-lg p-4 bg-[#F2F2F7]">
+      <div className="w-96 shadow-lg p-[18px] bg-[#F2F2F7]">
         {/* Заголовок + кнопка */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-[30px]">
           <h1 className="font-sfpro font-bold text-[28px]">Pager</h1>
-          <button className="bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
+          <Link to='/'
+        
+						className='bg-white/50 backdrop-blur-3xl border border-white/50 rounded-full p-2 shadow-xl 
                      hover:scale-105 hover:shadow-2xl hover:bg-white/40 
-                     active:scale-95 active:shadow-none 
-                     transition-all duration-300 cursor-pointer">
-            <svg
-              width="11"
-              height="17"
-              viewBox="0 0 11 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-gray-900"
-            >
-              <path d="M0.360842 7.65576L7.00147 1.01514C7.46045 0.556152 8.20264 0.556152 8.65674 1.01514L9.76026 2.11865C10.2192 2.57764 10.2192 3.31982 9.76026 3.77393L5.05811 8.48584L9.76514 13.1929C10.2241 13.6519 10.2241 14.394 9.76514 14.8481L8.66162 15.9565C8.20264 16.4155 7.46045 16.4155 7.00635 15.9565L0.365725 9.31592C-0.0981421 8.85693 -0.0981421 8.11475 0.360842 7.65576Z" fill="black" />
-            </svg>
-          </button>
+                     active:scale-95 active:shadow-none transition-all duration-300 cursor-pointer w-[48px] h-[48px] flex justify-center items-center'
+					>
+					<div className=''>
+						<img src={assets.back_arrow} alt="" />
+					</div>
+					</Link>
         </div>
 
         {/* Контейнер сообщений */}
@@ -72,20 +69,8 @@ export default function Pager() {
             placeholder="Your short message here..."
             className="flex-1 bg-transparent outline-none text-gray-900 placeholder-gray-500"
           />
-          <button>
-            <svg
-              width="11"
-              height="17"
-              viewBox="0 0 11 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                opacity="0.5"
-                d="M10.2021 9.33008L3.56152 15.9707C3.10254 16.4297 2.36035 16.4297 1.90625 15.9707L0.802734 14.8672C0.34375 14.4082 0.34375 13.666 0.802734 13.2119L5.50977 8.50488L0.802734 3.79785C0.34375 3.33887 0.34375 2.59668 0.802734 2.14258L1.90137 1.0293C2.36035 0.570313 3.10254 0.570313 3.55664 1.0293L10.1973 7.66992C10.6611 8.12891 10.6611 8.87109 10.2021 9.33008Z"
-                fill="black"
-              />
-            </svg>
+          <button aria-label='send message' className='cursor-pointer'>
+            <img src={assets.send_arrow} alt="" />
           </button>
         </div>
       </div>
